@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jane Doe - Professional Resume</title>
+  <style>
+    /* CSS Variables for easy theme customization */
+    :root {
+      --primary-color: #002D62; /* Navy blue */
+      --accent-color: #FFD700;  /* Gold */
+      --bg-color: #f4f4f4;
+      --light-bg: #ffffff;
+      --text-color: #333;
+      --header-bg: linear-gradient(135deg, #002D62, #005BB5);
+      --border-color: #ddd;
+    }
+
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    a:hover {
+      color:red;
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header */
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header p.subtitle {
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+    header p.contact {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    /* Layout: Sidebar and Main Content */
+    .content {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .content {
+        grid-template-columns: 1fr 2fr;
+      }
+    }
+    aside {
+      background: #f0f4f8;
+      padding: 20px;
+      border-right: 1px solid var(--border-color);
+    }
+    main {
+      padding: 20px;
+    }
+
+    /* Sidebar Styling */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+    .sidebar-section {
+      margin-bottom: 20px;
+    }
+    .sidebar-section h2 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .sidebar-section ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+    .sidebar-section ul li {
+      margin: 8px 0;
+    }
+
+    /* Main Content Sections */
+    .section {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    .section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
+      border-radius: 3px;
+    }
+    .item {
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: translateX(5px);
+    }
+    .item h3 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    .item .date {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .item p {
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    /* Timeline Style for Lists */
+    .timeline {
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary-color);
+    }
+    .timeline li {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 767px) {
+      aside {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <h1>Jane Doe</h1>
+      <p class="subtitle">Senior Software Engineer</p>
+      <p class="contact">jane.doe@example.com | +1234567890 | Vijayawada, India</p>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Sidebar -->
+      <aside>
+        <img src="https://i.ibb.co/0yGDqKz9/logo.png" alt="Profile Picture" class="profile-pic">
+        <div class="sidebar-section">
+          <h2>Profile</h2>
+          <p style="text-align: center; font-size: 0.95rem;">
+            Dynamic and motivated Computer Science and Engineering student at SAHE Deemed to be University with a strong foundation in Java, Python, C, HTML, and CSS. Passionate about leveraging emerging tecnologies and business acumen to create innovative solutions.
+          </p>
+        </div>
+        <div class="sidebar-section">
+          <h2>Contact</h2>
+          <ul>
+            <li><strong>Email:</strong> jane.doe@example.com</li>
+            <li><strong>Phone:</strong> +1234567890</li>
+            <li><strong>Address:</strong> City, Country</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h2>Skills</h2>
+          <ul>
+            <li><strong>Programming Languages:</strong> C, Python, Java</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h2>Social</h2>
+          <ul>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Education Section -->
+        <section class="section" id="education">
+          <h2>Education</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Bachelor of Technology in Computer Science and Engineering</h3>
+                <div class="item"><strong>SAHE Deemed To Be University</strong>, Vijayawada, India | 2023 - 2027</div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>12th Grade</h3>
+                <div class="item"><strong>Sri Viswasanthi Educational Institutions</strong>, Vuyyuru, India | 2022</div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>10th Grade</h3>
+                <div class="item"><strong>Sri Viswasanthi Education Institutions</strong>, Vuyyuru, India | 2020</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section class="section" id="professional">
+          <h2>Professional Development</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Data Structure and Algorithms</h3>
+                <div class="item">Using C, Python</div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Web Development</h3>
+                <div class="item" style="margin-bottom: 0px;">
+                  <h4 style="display: inline;">Fronted - </h4>
+                  <p style="display: inline;">HTML, CSS, JS</p>
+                </div>
+                <div class="item" style="margin-bottom: 0px;">
+                  <h4 style="display: inline;">Backend - </h4>
+                  <p style="display: inline;">Node Js (Basics)</p>
+                </div>
+                <div class="item">
+                  <h4 style="display: inline;">Databases - </h4>
+                  <p style="display: inline;">SQL</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Game Development</h3>
+                <div class="item">
+                  <div class="item">Basics of C Sharp (C#), Unity</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Competitive Programming Section -->
+        <section class="section" id="competitive">
+          <h2>Competitive Programming</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Leetcode</h3>
+                <div class="item" style="margin-bottom: 0px;"><h4>Rank - 150K</h4></div>
+                <p>Solved more then 460 questions on <i>Leetcode</i></p>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Geeks for Geeks</h3>
+                <div class="item" style="margin-bottom: 0px;"><h4>Institution Rank - 20</h4></div>
+                <p>Solved more than 350 questions on <i>Geeks for Geeks</i></p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Personal Projects Section -->
+        <section class="section" id="projects">
+          <h2>Personal Projects</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Jumping Game in Unity</h3>
+                <p>Developed a 2D jumping game using Unity and C#, demonstrating game mechanics, object physics, and user interaction design. </p>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Attendance System</h3>
+                <p>Presently woring on the project <strong>Attendance System</strong>.</p>
+                <p>It uses <strong>IMU, Barometer, GPS,</strong> and creates a virtual space as of shpae of a 3D classroom and it marks the attendance of the students present in that virtual space.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section" id="certifications">
+          <h2>Certifications</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Programming Essentials in Python by C++ Institute (Cisco Networking 
+                  Academy)</h3>
+                <div class="date">2024</div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Programming Essentials in C by C++ Institute (Cisco Networking Academy)</h3>
+                <div class="date">2024</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Extracurricular Activities Section -->
+        <section class="section" id="extracurricular">
+          <h2>Extracurricular Activities</h2>
+          <ul class="timeline">
+            <li>
+              <div class="item">
+                <h3>Volunteer, Local NGO</h3>
+                <p>Organized community events and fundraisers, showcasing leadership and a commitment to social responsibility.</p>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <h3>Member, Coding Club</h3>
+                <p>Conducted workshops and hackathons to mentor aspiring programmers and promote technical education.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
